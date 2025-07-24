@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What's SCAMPER?</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f7f7f7;
+        background: url("./pictures/oldnote.webp") center center / cover no-repeat fixed;
+        color: #333;
+        line-height: 1.6;
+        margin: 0;
+        padding: 2rem;
+    }
+    h1, h2, h3 {
+        color: #222;
+    }
+    blockquote {
+        border-left: 4px solid #999;
+        padding-left: 1rem;
+        color: #666;
+        font-style: italic;
+    }
+    code {
+        background: #eee;
+        padding: 2px 4px;
+        border-radius: 4px;
+    }
+    .section1 {
+        background: rgba(255, 255, 255, 0.7); /* 背景のみ透明 */
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        text-align: center;
+    }
+    .section {
+        background: rgba(255, 255, 255, 0.7); /* 背景のみ透明 */
+        padding: 1rem;
+        margin-bottom: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        text-align: center;
+    }
+    .en, .ja {
+        margin-top: 0.2rem;
+        margin-bottom: 0.2rem;
+    }
+    ul {
+        padding-left: 1.5rem;
+    }
+    a {
+        color: #0366d6;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    footer {
+        text-align: center;
+        font-size: 0.9rem;
+        color: #888;
+        margin-top: 4rem;
+    }
+    .cta-button {
+        display: inline-block;
+        background-color: #0366d6;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+        background-color: #024a9c;
+    }
+
+    .lesson-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .lesson-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        font-weight: bold;
+        text-align: center;
+        color: white;
+        text-decoration: none;
+        transition: transform 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        line-height: 1.2;
+        font-size: 0.85rem;
+        padding: 0.5rem;
+    }
+
+    .lesson-button:hover {
+        transform: scale(1.05);
+    }
+
+    /* 色バリエーション */
+    .favs {
+        background-color: #D72638;
+    }
+    .journal {
+        background-color: #3F88C5;
+    }
+    .register {
+        background-color: #43AA8B;
+    }
+
+    /* ===== スマホ対応レスポンシブ追加 ===== */
+    @media (max-width: 600px) {
+        body {
+            padding: 0.5rem;
+        }
+        .section {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 6px;
+        }
+        h1 {
+            font-size: 1.6rem;
+        }
+        h2 {
+            font-size: 1.1rem;
+        }
+        h3 {
+            font-size: 1.0rem;
+        }
+        .cta-button {
+            width: 100%;
+            text-align: center;
+            padding: 1rem;
+            font-size: 1.1rem;
+            border-radius: 8px;
+        }
+        blockquote {
+            font-size: 0.95rem;
+            padding-left: 0.5rem;
+        }
+        footer {
+            font-size: 0.8rem;
+            padding: 1rem 0;
+        }
+    }
+
+    .accordion {
+        margin: 1em 0;
+    }
+    .accordion-btn {
+        width: 100%;
+        background: #e6eefc;
+        color: #2c3e50;
+        border: none;
+        padding: 1em;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 1.05rem;
+        cursor: pointer;
+        transition: background 0.2s;
+        box-shadow: 0 1.5px 5px rgba(0,0,0,0.07);
+    }
+    .accordion-btn:hover,
+    .accordion-btn:focus {
+        background: #cde1f9;
+    }
+    .accordion-content {
+        display: none;
+        padding: 1em 0.8em 0.8em 0.8em;
+        background: rgba(255,255,255,0.97);
+        border-radius: 0 0 8px 8px;
+        font-size: 0.97rem;
+        line-height: 1.5;
+        text-align: left;
+    }
+    .accordion.active .accordion-content {
+        display: block;
+    }
+</style>
+<link rel="icon" href="./pictures/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+<div class="section1">
+    <h1>SCAMPER NOVELIST</h1>
+    <h2>「SCAMPER」で、ネタ切れを防ぐ。</h2>
+    <!-- SCAMPERの説明キャッチ -->
+        <div class="accordion">
+        <button class="accordion-btn" type="button">SCAMPERとは？<br>（タップで説明表示）</button>
+            <div class="accordion-content">
+                <b>SCAMPER</b>は、創造的なアイデアを生み出すための7つの視点からなる発想フレームワークです。<br>
+                もともとは、製品開発や問題解決のために考案され、ブレインストーミングでよく使われる技法ですが、<br>
+                小説やシナリオ、企画など、あらゆる「ネタ切れ」に効く思考のツールです。<br><br>
+
+            各頭文字は次の7つの発想法を表します：
+            <ul>
+                <li><b>S</b> - Substitute（代える）</li>
+                <li><b>C</b> - Combine（組み合わせる）</li>
+                <li><b>A</b> - Adapt（応用する）</li>
+                <li><b>M</b> - Modify（変える）</li>
+                <li><b>P</b> - Put to another use（他の用途）</li>
+                <li><b>E</b> - Eliminate（省く）</li>
+                <li><b>R</b> - Reverse / Rearrange（逆・並べ替え）</li>
+            </ul>
+            たとえば「吸血鬼」という設定を「Reverse（逆にする）」と、「血を吸われる人間が実は支配者だった」など、意外性のあるアイデアが生まれます。<br>
+            まずは、あなただけのネタ帳を書き溜め、SCAMPERでネタを膨らませてみましょう。<br><br>
+
+            <p>
+            <b>SCAMPER</b> is a creativity framework made of seven idea triggers.<br>
+            It’s especially useful for writers, creators, and anyone facing “idea droughts.”<br>
+            Begin with your own idea journal, and let SCAMPER breathe life into your thoughts.
+            </p>
+            </div>
+        </div>
+    <!-- ボタン -->
+    <div class="lesson-buttons">
+        <a href="./bookofdays/bookofdays.php" class="lesson-button favs">🖋<br>ネタ帳を<br>書いてみる</a>
+        <a href="./scamper/scamper.php" class="lesson-button journal">🎈<br>ネタを<br>ふくらます</a>
+        <a href="./user_register/register.php" class="lesson-button register">📜<br>ユーザー登録は<br>こちらから</a>
+    </div>
+</div>
+
+<script>
+document.querySelectorAll('.accordion-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const acc = this.parentElement;
+        acc.classList.toggle('active');
+    });
+});
+</script>
+
+</body>
+</html>
